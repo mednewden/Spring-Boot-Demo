@@ -1,0 +1,63 @@
+server:
+  port: '8080'
+# To set the defaut spring profile
+# on running with commande java -jar demo-boot-1.0.0.jar --spring.profiles.active=prod
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles : dev
+  datasource:
+    username: TOM
+    url: jdbc:mysql://localhost:3306/db_dev
+    driverClassName: com.mysql.jdbc.Driver
+    password: ZEJ32@ma
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to boot demo
+
+management:
+   endpoints:
+      web:
+         exposure:
+            include: "*"
+            exlude: "env,bean"  
+---
+
+spring:
+  profiles : qa
+  datasource:
+    username: TOM
+    url: jdbc:mysql://localhost:3306/db_qa
+    driverClassName: com.mysql.jdbc.Driver
+    password: ZEJ32@ma
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to boot demo
+  
+---
+  
+spring:
+  profiles : prod
+  datasource:
+    username: TOM
+    url: jdbc:mysql://localhost:3306/db_school
+    driverClassName: com.mysql.jdbc.Driver
+    password: ZEJ32@ma
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to boot demo  
+
+---
